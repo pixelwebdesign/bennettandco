@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bennett & Co — Solicitors | Tauranga, New Zealand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#12243A;
+  --navy2:#1A2F47;
+  --ink:#2C3A4A;
+  --body:#4F5F6E;
+  --mid:#7A8899;
+  --pale:#AAB4BE;
+  --rule:#DDE2E8;
+  --bg:#F7F6F3;
+  --bg2:#EFF0EC;
+  --white:#FFFFFF;
+  --gold:#7A6030;
+  --gold2:#A8862A;
+  --gold-pale:#F2EAD6;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);font-weight:300;line-height:1.7;overflow-x:hidden}
+
+/* ── NOTICE ── */
+.notice{background:var(--gold-pale);border-bottom:1px solid #D9CBA8;text-align:center;padding:7px 16px;font-size:0.61rem;font-weight:400;letter-spacing:0.08em;color:var(--gold)}
+
+/* ── TOPBAR ── */
+.topbar{background:var(--navy);padding:8px 52px;display:flex;align-items:center;justify-content:space-between}
+.topbar-l{font-size:0.64rem;font-weight:300;letter-spacing:0.05em;color:rgba(255,255,255,.32)}
+.topbar-r{display:flex;gap:24px}
+.topbar-r a{font-size:0.64rem;font-weight:300;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s}
+.topbar-r a:hover{color:rgba(255,255,255,.75)}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:200;background:var(--white);border-bottom:1px solid var(--rule);padding:0 52px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{text-decoration:none;display:flex;flex-direction:column;gap:2px}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;letter-spacing:0.02em;color:var(--navy);line-height:1}
+.nav-sub{font-size:0.5rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);line-height:1}
+.nav-links{list-style:none;display:flex;gap:32px}
+.nav-links a{font-size:0.7rem;font-weight:400;letter-spacing:0.09em;text-transform:uppercase;color:var(--body);text-decoration:none;transition:color .2s;padding-bottom:2px;border-bottom:1px solid transparent}
+.nav-links a:hover{color:var(--navy);border-bottom-color:var(--gold)}
+.nav-cta{font-size:0.67rem;font-weight:500;letter-spacing:0.09em;text-transform:uppercase;color:var(--white);background:var(--navy);padding:.6rem 1.4rem;text-decoration:none;border:1px solid var(--navy);transition:all .22s}
+.nav-cta:hover{background:transparent;color:var(--navy)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--navy)}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:300;flex-direction:column;justify-content:center;align-items:center}
+.mob-menu.open{display:flex}
+.mob-close{position:absolute;top:20px;right:20px;background:none;border:none;cursor:pointer;font-size:1.4rem;color:rgba(255,255,255,.45)}
+.mob-menu a{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;color:rgba(255,255,255,.6);text-decoration:none;padding:12px 0;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,.06);transition:color .2s}
+.mob-menu a:hover{color:#fff}
+.mob-menu .mob-cta{font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold2);border-color:transparent;margin-top:8px}
+
+/* ── HERO ── */
+#hero{background:var(--navy2);display:grid;grid-template-columns:1fr 380px;min-height:82vh;position:relative;overflow:hidden}
+.hero-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.015) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.015) 60px);pointer-events:none}
+.hero-l{padding:88px 60px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;border-right:1px solid rgba(255,255,255,.07)}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2rem}
+.hero-tag::before{content:'';width:18px;height:1px;background:rgba(255,255,255,.3)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,3.8vw,4rem);font-weight:400;line-height:1.15;color:var(--white);margin-bottom:1.6rem;letter-spacing:-0.01em}
+.hero-title em{font-style:italic;font-weight:300}
+.hero-rule{width:36px;height:1px;background:var(--gold2);margin-bottom:1.6rem}
+.hero-desc{font-size:.96rem;font-weight:300;color:rgba(255,255,255,.48);max-width:480px;line-height:1.85;margin-bottom:2.6rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-solid{font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;background:var(--gold2);color:var(--navy);padding:.82rem 1.7rem;text-decoration:none;transition:opacity .2s;white-space:nowrap}
+.btn-solid:hover{opacity:.83}
+.btn-ghost{font-size:0.68rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.16);padding:.82rem 1.7rem;text-decoration:none;transition:all .22s;white-space:nowrap}
+.btn-ghost:hover{color:rgba(255,255,255,.85);border-color:rgba(255,255,255,.4)}
+.hero-r{padding:88px 40px 80px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2;background:rgba(0,0,0,.15)}
+.hero-r-lbl{font-size:0.57rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:24px}
+.stat{padding:20px 0;border-top:1px solid rgba(255,255,255,.07)}
+.stat:last-of-type{border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:24px}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:400;color:var(--white);line-height:1;letter-spacing:-0.02em}
+.stat-n sup{font-size:1rem;vertical-align:super}
+.stat-l{font-size:0.6rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px}
+.hero-membership{padding:16px;border:1px solid rgba(255,255,255,.07);font-size:0.68rem;font-weight:300;color:rgba(255,255,255,.32);line-height:1.7}
+.hero-membership strong{display:block;font-weight:500;color:rgba(255,255,255,.5);letter-spacing:0.05em;margin-bottom:4px;font-size:0.66rem}
+
+/* ── SHARED ── */
+section{padding:88px 52px;border-top:1px solid var(--rule)}
+.lbl{font-size:0.59rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem;display:flex;align-items:center;gap:9px}
+.lbl::before{content:'';width:14px;height:1px;background:var(--gold)}
+.heading{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,2.8vw,2.7rem);font-weight:400;letter-spacing:-0.01em;color:var(--navy);line-height:1.16}
+.heading em{font-style:italic;font-weight:300}
+
+/* ── AREAS ── */
+#areas{background:var(--white)}
+.areas-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+.areas-desc{font-size:.9rem;font-weight:300;color:var(--mid);line-height:1.82;max-width:400px}
+.area{padding:28px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:44px 1fr;gap:28px;cursor:default}
+.area-n{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:var(--pale);padding-top:3px}
+.area-body{}
+.area-name{font-family:'Cormorant Garamond',serif;font-size:1.42rem;font-weight:500;color:var(--navy);margin-bottom:8px}
+.area-text{font-size:.84rem;font-weight:300;color:var(--body);line-height:1.78;max-width:560px;margin-bottom:12px}
+.area-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:.59rem;font-weight:500;letter-spacing:.07em;color:var(--mid);border:1px solid var(--rule);padding:3px 8px}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2);display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.about-text{font-size:.93rem;font-weight:300;color:var(--body);line-height:1.88;margin-top:1.6rem}
+.about-text p+p{margin-top:1rem}
+.about-right{}
+.fact-list{margin-top:1.4rem;display:flex;flex-direction:column}
+.fact{display:flex;gap:14px;padding:15px 0;border-bottom:1px solid var(--rule)}
+.fact:first-child{border-top:1px solid var(--rule)}
+.fact-ico{width:32px;height:32px;flex-shrink:0;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--gold);margin-top:1px}
+.fact-t{font-size:.78rem;font-weight:500;color:var(--navy);margin-bottom:3px}
+.fact-s{font-size:.71rem;font-weight:300;color:var(--mid);line-height:1.6}
+
+/* ── HOW WE WORK ── */
+#howwework{background:var(--white)}
+.how-top{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+.how-desc{font-size:.9rem;font-weight:300;color:var(--mid);line-height:1.82;max-width:400px}
+.how-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule)}
+.how-item{background:var(--white);padding:32px}
+.how-n{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-style:italic;color:var(--pale);margin-bottom:14px}
+.how-h{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--navy);margin-bottom:10px}
+.how-p{font-size:.82rem;font-weight:300;color:var(--body);line-height:1.8}
+
+/* ── TEAM ── */
+#team{background:var(--bg)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-top:48px}
+.tc{background:var(--bg);padding:32px;position:relative;overflow:hidden;transition:background .25s}
+.tc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold2);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.tc:hover{background:var(--white)}
+.tc:hover::after{transform:scaleX(1)}
+.tc-ini{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:500;letter-spacing:.08em;color:var(--gold);background:var(--bg2);border:1px solid var(--rule);width:40px;height:40px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.tc-name{font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-weight:500;color:var(--navy);margin-bottom:3px}
+.tc-role{font-size:.62rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.tc-adm{font-size:.66rem;font-weight:300;color:var(--mid);margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.tc-bio{font-size:.8rem;font-weight:300;color:var(--body);line-height:1.8}
+.tc-edu{margin-top:13px;padding-top:13px;border-top:1px solid var(--rule)}
+.tc-edu p{font-size:.68rem;font-weight:300;color:var(--pale);margin-top:4px}
+.tc-edu p::before{content:'— '}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:var(--bg2)}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-top:48px}
+.tcard{background:var(--bg2);padding:32px}
+.tmark{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--rule);line-height:.8;display:block;margin-bottom:12px}
+.tbody{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;font-weight:300;color:var(--navy);line-height:1.65;margin-bottom:20px}
+.tdivider{width:24px;height:1px;background:var(--gold);margin-bottom:12px}
+.tname{font-size:.78rem;font-weight:500;color:var(--navy);letter-spacing:.02em}
+.tctx{font-size:.68rem;font-weight:300;color:var(--mid);margin-top:3px}
+.ttag{display:inline-block;margin-top:10px;font-size:.57rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-left:2px solid var(--gold);padding-left:7px}
+
+/* ── CONTACT ── */
+#contact{background:var(--navy2);border-top:none}
+#contact .lbl{color:rgba(255,255,255,.55)}
+#contact .lbl::before{background:rgba(255,255,255,.4)}
+#contact .heading{color:var(--white)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;margin-top:48px;align-items:start}
+.cpitch{font-size:.88rem;font-weight:300;color:rgba(255,255,255,.65);line-height:1.85;margin-bottom:28px}
+.cdetails{display:flex;flex-direction:column;gap:20px}
+.cd-lbl{font-size:.56rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px}
+.cd-val{font-size:.84rem;font-weight:300;color:rgba(255,255,255,.78);line-height:1.65}
+.cd-val a{color:rgba(255,255,255,.78);text-decoration:none;transition:color .2s}
+.cd-val a:hover{color:var(--white)}
+.cform{display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.1)}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.12)}
+.cf{background:#1E3654;padding:15px 18px}
+.cf label{display:block;font-size:.56rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:6px}
+.cf input,.cf select,.cf textarea{font-family:'Jost',sans-serif;font-size:.84rem;font-weight:300;color:#fff;background:transparent;border:none;outline:none;width:100%;caret-color:#fff;appearance:none}
+.cf textarea{min-height:84px;resize:none}
+.cf select option{background:#1E3654;color:#fff}
+.cf input::placeholder,.cf textarea::placeholder{color:rgba(255,255,255,.28)}
+.c-note{background:#1E3654;padding:11px 18px;font-size:.68rem;font-weight:300;color:rgba(255,255,255,.42);line-height:1.6}
+.c-submit{font-family:'Jost',sans-serif;font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;background:var(--gold2);color:var(--navy);border:none;padding:18px;cursor:pointer;transition:opacity .2s}
+.c-submit:hover{opacity:.83}
+
+/* ── FOOTER ── */
+.footer-main{background:var(--navy);padding:52px 52px 36px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;border-top:1px solid rgba(255,255,255,.05)}
+.f-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.02em;margin-bottom:7px}
+.f-desc{font-size:.68rem;font-weight:300;color:rgba(255,255,255,.24);line-height:1.72}
+.f-note{font-size:.6rem;font-weight:300;color:rgba(255,255,255,.15);line-height:1.6;margin-top:12px}
+.f-col-h{font-size:.55rem;font-weight:500;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.24);margin-bottom:14px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-links a{font-size:.72rem;font-weight:300;color:rgba(255,255,255,.36);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:rgba(255,255,255,.7)}
+.footer-bottom{background:var(--navy);padding:14px 52px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05)}
+.f-copy,.f-reg{font-size:.6rem;font-weight:300;color:rgba(255,255,255,.17)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .75s ease,transform .75s ease}
+.reveal.up{opacity:1;transform:translateY(0)}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .topbar{display:none}
+  nav{padding:0 18px;height:58px}
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  section{padding:52px 18px}
+  #hero{grid-template-columns:1fr;min-height:auto}
+  .hero-l{padding:68px 20px 40px;border-right:none}
+  .hero-title{font-size:clamp(2rem,8.5vw,2.8rem)}
+  .hero-desc{font-size:.9rem}
+  .hero-actions{flex-direction:column;gap:9px}
+  .btn-solid,.btn-ghost{display:block;text-align:center}
+  .hero-r{padding:32px 20px 48px;border-top:1px solid rgba(255,255,255,.07)}
+  .areas-top,.how-top{grid-template-columns:1fr;gap:14px;margin-bottom:28px}
+  .how-grid{grid-template-columns:1fr}
+  .how-item{padding:24px 20px}
+  #about{grid-template-columns:1fr;gap:32px;padding-left:18px;padding-right:18px}
+  .team-grid{grid-template-columns:1fr}
+  .tc{padding:24px 18px}
+  .tgrid{grid-template-columns:1fr}
+  .tcard{padding:24px 18px}
+  .contact-wrap{grid-template-columns:1fr;gap:36px}
+  .crow{grid-template-columns:1fr}
+  .footer-main{grid-template-columns:1fr;padding:36px 18px 24px;gap:24px}
+  .footer-bottom{flex-direction:column;gap:7px;text-align:center;padding:14px 18px}
+}
+@media(min-width:769px) and (max-width:1060px){
+  .topbar{padding:8px 24px}
+  nav,.footer-main,.footer-bottom{padding-left:28px;padding-right:28px}
+  section{padding-left:28px;padding-right:28px}
+  #hero{grid-template-columns:1fr 300px}
+  .hero-l{padding:72px 36px 64px}
+  .hero-r{padding:72px 28px 64px}
+  #about{grid-template-columns:1fr;gap:36px}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .contact-wrap{grid-template-columns:1fr;gap:36px}
+  .footer-main{grid-template-columns:1fr 1fr;gap:28px}
+  .areas-top,.how-top{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+
+
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-name">Bennett &amp; Co</span>
+    <span class="nav-sub">Solicitors &amp; Barristers &nbsp;&middot;&nbsp; Tauranga</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#areas">Practice Areas</a></li>
+    <li><a href="#about">The Firm</a></li>
+    <li><a href="#howwework">How We Work</a></li>
+    <li><a href="#team">Our Team</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" onclick="openMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMenu()">&#x2715;</button>
+  <a href="#areas" onclick="closeMenu()">Practice Areas</a>
+  <a href="#about" onclick="closeMenu()">The Firm</a>
+  <a href="#howwework" onclick="closeMenu()">How We Work</a>
+  <a href="#team" onclick="closeMenu()">Our Team</a>
+  <a href="#contact" onclick="closeMenu()" class="mob-cta">Get in Touch &rarr;</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero" style="padding:0;border-top:none">
+  <div class="hero-lines"></div>
+  <div class="hero-l">
+    <p class="hero-tag reveal">Tauranga, Bay of Plenty &nbsp;&middot;&nbsp; Est. 1998</p>
+    <h1 class="hero-title reveal">
+      Practical legal advice<br>for businesses and<br><em>individuals since 1998.</em>
+    </h1>
+    <div class="hero-rule reveal"></div>
+    <p class="hero-desc reveal">
+      Bennett &amp; Co is a Tauranga law firm with over two decades of experience in commercial, property, and employment law. We work with individuals, businesses, and property owners across the Bay of Plenty — providing clear, considered legal advice without unnecessary complexity.
+    </p>
+    <div class="hero-actions reveal">
+      <a href="#contact" class="btn-solid">Get in touch</a>
+      <a href="#areas" class="btn-ghost">Our practice areas</a>
+    </div>
+  </div>
+  <div class="hero-r reveal">
+    <p class="hero-r-lbl">At a glance</p>
+    <div class="stat"><div class="stat-n">26</div><div class="stat-l">Years in practice</div></div>
+    <div class="stat"><div class="stat-n">800<sup>+</sup></div><div class="stat-l">Matters handled</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Specialist practice areas</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Qualified solicitors</div></div>
+    <div class="hero-membership">
+      <strong>Professional memberships</strong>
+      New Zealand Law Society &nbsp;&middot;&nbsp; Bay of Plenty District Law Society &nbsp;&middot;&nbsp; Employment Law Association of New Zealand &nbsp;&middot;&nbsp; Property Law Section (NZLS)
+    </div>
+  </div>
+</section>
+
+<!-- ── PRACTICE AREAS ── -->
+<section id="areas">
+  <div class="areas-top">
+    <div>
+      <p class="lbl reveal">Practice areas</p>
+      <h2 class="heading reveal">What we <em>handle</em></h2>
+    </div>
+    <p class="areas-desc reveal">We practise in three areas of law. Each is led by a solicitor with specific experience and qualifications in that field. We do not take on matters outside these areas, and we will always tell you if another firm would be better placed to assist.</p>
+  </div>
+
+  <div class="area reveal">
+    <span class="area-n">I.</span>
+    <div class="area-body">
+      <h3 class="area-name">Commercial Law</h3>
+      <p class="area-text">We advise on business transactions and commercial matters for owner-operated businesses and medium-sized companies throughout the Bay of Plenty. Our work in this area covers the full lifecycle of a business — from initial structuring and shareholder arrangements through to the sale or acquisition of an enterprise. James Bennett has practised commercial law for over 25 years and has advised on a wide range of transactions across multiple industries.</p>
+      <div class="area-tags">
+        <span class="tag">Business sales &amp; acquisitions</span>
+        <span class="tag">Shareholder agreements</span>
+        <span class="tag">Joint ventures</span>
+        <span class="tag">Commercial contracts</span>
+        <span class="tag">Company formation &amp; structure</span>
+        <span class="tag">Corporate governance</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="area reveal">
+    <span class="area-n">II.</span>
+    <div class="area-body">
+      <h3 class="area-name">Property Law</h3>
+      <p class="area-text">Our property practice covers residential and commercial transactions, subdivision, leasing, and development work across the Bay of Plenty. Sarah Rowe leads this area and holds NZLS accredited specialist status in Property Law — a designation reflecting her depth of experience and focus in this field. We act for buyers and sellers, landlords and tenants, developers, and financiers.</p>
+      <div class="area-tags">
+        <span class="tag">Residential conveyancing</span>
+        <span class="tag">Commercial transactions</span>
+        <span class="tag">Subdivision &amp; development</span>
+        <span class="tag">Leases &amp; licences</span>
+        <span class="tag">Body corporate matters</span>
+        <span class="tag">Easements &amp; covenants</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="area reveal">
+    <span class="area-n">III.</span>
+    <div class="area-body">
+      <h3 class="area-name">Employment Law</h3>
+      <p class="area-text">We act for both employers and employees across the full range of employment matters under New Zealand law. Daniel Parata leads this practice area and has experience appearing before the Employment Relations Authority, conducting mediations, and advising on employment matters at all stages — from drafting employment agreements through to resolving disputes. His background on both sides of the employer-employee relationship gives him a clear-eyed view of how matters are likely to proceed.</p>
+      <div class="area-tags">
+        <span class="tag">Employment agreements</span>
+        <span class="tag">Personal grievances</span>
+        <span class="tag">Restructuring &amp; redundancy</span>
+        <span class="tag">ERA proceedings</span>
+        <span class="tag">Workplace investigations</span>
+        <span class="tag">Health &amp; safety advice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div>
+    <p class="lbl reveal">The firm</p>
+    <h2 class="heading reveal">About <em>Bennett &amp; Co</em></h2>
+    <div class="about-text reveal">
+      <p>Bennett &amp; Co was established in Tauranga in 1998 by James Bennett, following fifteen years in commercial legal practice in Auckland. The firm was set up to offer businesses and individuals in the Bay of Plenty direct access to experienced legal advice — without the overhead and impersonal service that can sometimes characterise larger practices.</p>
+      <p>Over more than two decades, the firm has grown steadily through word of mouth and client referrals. We have three solicitors, each with a defined area of expertise, and we keep our practice deliberately focused. Clients deal directly with the solicitor handling their file — not with intermediaries or rotating staff — which means continuity, accountability, and fewer things falling through the gaps.</p>
+      <p>We do not take on every type of legal work. Where a matter is outside our experience or better suited to a specialist firm, we say so plainly and point clients in the right direction.</p>
+    </div>
+  </div>
+  <div class="reveal">
+    <p class="lbl">Professional standing</p>
+    <div class="fact-list">
+      <div class="fact">
+        <div class="fact-ico">&#x2696;</div>
+        <div>
+          <p class="fact-t">New Zealand Law Society — Registered Firm</p>
+          <p class="fact-s">All practitioners hold current practising certificates. Reg. No. 00-45821. Subject to the NZLS Lawyers and Conveyancers Act (Lawyers: Conduct and Client Care) Rules.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="fact-ico">&#x1F3DB;</div>
+        <div>
+          <p class="fact-t">Bay of Plenty District Law Society</p>
+          <p class="fact-s">Member since founding in 1998. James Bennett served on the District Committee 2003–2010.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="fact-ico">&#x1F4CB;</div>
+        <div>
+          <p class="fact-t">NZLS Accredited Specialist — Property Law</p>
+          <p class="fact-s">Sarah Rowe holds accredited specialist status in Property Law, awarded by the New Zealand Law Society.</p>
+        </div>
+      </div>
+      <div class="fact">
+        <div class="fact-ico">&#x1F4DD;</div>
+        <div>
+          <p class="fact-t">Accredited Mediator — AMINZ</p>
+          <p class="fact-s">Daniel Parata is an accredited mediator through the Arbitrators' and Mediators' Institute of New Zealand.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW WE WORK ── -->
+<section id="howwework">
+  <div class="how-top">
+    <div>
+      <p class="lbl reveal">How we work</p>
+      <h2 class="heading reveal">What to <em>expect</em></h2>
+    </div>
+    <p class="how-desc reveal">A few things worth knowing about how we handle instructions, communicate with clients, and approach fees — before you decide whether to get in touch.</p>
+  </div>
+  <div class="how-grid reveal">
+    <div class="how-item">
+      <p class="how-n">01</p>
+      <h3 class="how-h">You deal directly with your solicitor</h3>
+      <p class="how-p">When you instruct us, you deal directly with the solicitor handling your matter — not a legal executive, not a different person each time you call. That means better continuity, more accountability, and clearer communication throughout.</p>
+    </div>
+    <div class="how-item">
+      <p class="how-n">02</p>
+      <h3 class="how-h">Fee estimates before we begin</h3>
+      <p class="how-p">We provide a fee estimate or, where the scope allows, a fixed fee before commencing work. If something changes and is likely to affect costs, we will let you know in advance — not at the end of the matter when it is too late to make a different decision.</p>
+    </div>
+    <div class="how-item">
+      <p class="how-n">03</p>
+      <h3 class="how-h">Plain language, not legal jargon</h3>
+      <p class="how-p">We explain your situation and options in plain language. Legal matters can involve complexity, but our role is to make your position understandable and help you make informed decisions — not to make the process feel more complicated than it needs to be.</p>
+    </div>
+    <div class="how-item">
+      <p class="how-n">04</p>
+      <h3 class="how-h">Honest about the limits of our practice</h3>
+      <p class="how-p">We do not accept instructions in areas outside our practice. If your matter is better suited to a specialist firm — or requires expertise we do not have — we will say so directly and, where we can, suggest an appropriate referral.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── TEAM ── -->
+<section id="team">
+  <p class="lbl reveal">Our team</p>
+  <h2 class="heading reveal">The <em>solicitors</em></h2>
+  <div class="team-grid">
+    <div class="tc reveal">
+      <div class="tc-ini">JB</div>
+      <p class="tc-name">James Bennett</p>
+      <p class="tc-role">Founding Partner &mdash; Commercial Law</p>
+      <p class="tc-adm">Admitted 1985 &nbsp;&middot;&nbsp; NZLS</p>
+      <p class="tc-bio">James has practised commercial law since 1985, having begun his career in Auckland before establishing Bennett &amp; Co in Tauranga in 1998. Over more than two decades, he has advised on business acquisitions and sales, shareholder disputes, joint ventures, and general commercial contracting for clients ranging from small owner-operated businesses to regional subsidiaries of larger companies. He has a particular familiarity with the legal needs of family-owned and privately held businesses, and has guided a number of such clients through significant transactions at different stages of their growth.</p>
+      <div class="tc-edu">
+        <p>LLB (Hons), University of Auckland, 1983</p>
+        <p>Member, NZ Institute of Directors (MNZID)</p>
+        <p>BOP District Law Society Committee, 2003&ndash;2010</p>
+      </div>
+    </div>
+    <div class="tc reveal">
+      <div class="tc-ini">SR</div>
+      <p class="tc-name">Sarah Rowe</p>
+      <p class="tc-role">Partner &mdash; Property Law</p>
+      <p class="tc-adm">Admitted 2000 &nbsp;&middot;&nbsp; NZLS Accredited Specialist, Property Law</p>
+      <p class="tc-bio">Sarah joined the firm in 2006 after practising property law at a Wellington firm and spending several years as in-house counsel at a property development company. She has handled a substantial volume of residential and commercial property work across the Bay of Plenty, from first-home purchases to multi-stage commercial developments. Her NZLS accredited specialist status in Property Law reflects her consistent focus in this field and is held by a relatively small number of solicitors in New Zealand. She brings a careful, methodical approach to due diligence and has a strong track record of identifying issues before they become problems for clients.</p>
+      <div class="tc-edu">
+        <p>LLB, Victoria University of Wellington, 1999</p>
+        <p>NZLS Accredited Specialist &mdash; Property Law</p>
+        <p>Member, Property Law Section (NZLS)</p>
+      </div>
+    </div>
+    <div class="tc reveal">
+      <div class="tc-ini">DP</div>
+      <p class="tc-name">Daniel Parata</p>
+      <p class="tc-role">Solicitor &mdash; Employment Law</p>
+      <p class="tc-adm">Admitted 2013 &nbsp;&middot;&nbsp; Accredited Mediator, AMINZ</p>
+      <p class="tc-bio">Daniel joined the firm in 2018 after several years at an Auckland employment law firm. He advises employers and employees on the full range of employment matters — from drafting agreements and managing restructuring processes to personal grievances and ERA proceedings. His experience representing both sides of the employment relationship gives him a realistic sense of how disputes are likely to be assessed and resolved, which he uses to advise clients on practical strategy rather than simply pursuing the most adversarial available path. He is also an accredited mediator and frequently helps parties reach negotiated resolutions before matters escalate.</p>
+      <div class="tc-edu">
+        <p>LLB / BA, University of Otago, 2012</p>
+        <p>Accredited Mediator, AMINZ (2019)</p>
+        <p>Member, Employment Law Association of NZ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <p class="lbl reveal">Client feedback</p>
+  <h2 class="heading reveal">What <em>clients say</em></h2>
+  <div class="tgrid">
+    <div class="tcard reveal">
+      <span class="tmark">&ldquo;</span>
+      <p class="tbody">James advised us on the sale of our business, which turned out to be more complicated than we had anticipated. He identified a tax matter in the draft agreement that needed to be addressed, managed the negotiation with the purchaser's solicitors calmly, and kept us informed throughout. We had a fixed estimate from the outset and he stuck to it. We would not hesitate to use the firm again.</p>
+      <div class="tdivider"></div>
+      <p class="tname">Michael &amp; Claire Thompson</p>
+      <p class="tctx">Directors, Thompson Building Supplies Ltd &nbsp;&middot;&nbsp; Tauranga</p>
+      <span class="ttag">Commercial Law</span>
+    </div>
+    <div class="tcard reveal">
+      <span class="tmark">&ldquo;</span>
+      <p class="tbody">This was our first commercial property purchase and we were not entirely sure what to expect from the process. Sarah was thorough and straightforward. She found a caveat registered against the title that nobody else had picked up and had it resolved before settlement. She explained everything clearly and the fixed fee meant there were no surprises on the bill.</p>
+      <div class="tdivider"></div>
+      <p class="tname">Aroha Ngata</p>
+      <p class="tctx">Director, Ngata Property Holdings &nbsp;&middot;&nbsp; Mount Maunganui</p>
+      <span class="ttag">Property Law</span>
+    </div>
+    <div class="tcard reveal">
+      <span class="tmark">&ldquo;</span>
+      <p class="tbody">We had a personal grievance claim that we needed to deal with carefully. Daniel was direct with us from the start — he pointed out one area where he thought we had some exposure, which we had not fully appreciated, and then mapped out a clear path forward. We resolved it at mediation within six weeks. The advice was practical and honest, which is what we needed.</p>
+      <div class="tdivider"></div>
+      <p class="tname">Karen &amp; Paul Liu</p>
+      <p class="tctx">Directors, Pacific Rim Hospitality Group &nbsp;&middot;&nbsp; Papamoa</p>
+      <span class="ttag">Employment Law</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <p class="lbl reveal">Contact</p>
+  <h2 class="heading reveal">Discuss <em>your matter</em></h2>
+  <div class="contact-wrap">
+    <div class="reveal">
+      <p class="cpitch">If you have a legal matter you would like to discuss, we are happy to have an initial conversation to understand the situation and advise whether it is something we can assist with. There is no charge for an initial enquiry, and no obligation to proceed.</p>
+      <p class="cpitch">You are welcome to contact us by phone, email, or through the form below. All communications are treated as confidential and subject to solicitor-client privilege from the point of first contact.</p>
+      <div class="cdetails">
+        <div>
+          <p class="cd-lbl">Office</p>
+          <p class="cd-val">Level 2, The Chambers<br>45 Grey Street, Tauranga 3110</p>
+        </div>
+        <div>
+          <p class="cd-lbl">Phone</p>
+          <p class="cd-val"><a href="tel:+6475784820">(07) 578 4820</a></p>
+        </div>
+        <div>
+          <p class="cd-lbl">Email</p>
+          <p class="cd-val"><a href="mailto:enquiries@bennettco.co.nz">enquiries@bennettco.co.nz</a></p>
+        </div>
+        <div>
+          <p class="cd-lbl">Hours</p>
+          <p class="cd-val">Monday &ndash; Friday &nbsp;&middot;&nbsp; 8:30 am &ndash; 5:00 pm<br>After-hours by arrangement</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <form class="cform" onsubmit="formSend(event)">
+        <div class="crow">
+          <div class="cf"><label>First name</label><input type="text" placeholder="James"></div>
+          <div class="cf"><label>Last name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="cf"><label>Email</label><input type="email" placeholder="james@example.co.nz"></div>
+        <div class="cf"><label>Phone (optional)</label><input type="tel" placeholder="(07) 000 0000"></div>
+        <div class="cf">
+          <label>Area of enquiry</label>
+          <select><option value="" disabled selected>Select</option><option>Commercial Law</option><option>Property Law</option><option>Employment Law</option><option>Not sure</option></select>
+        </div>
+        <div class="cf"><label>Brief description of your matter</label><textarea placeholder="A short description of what you need help with. All information is confidential."></textarea></div>
+        <div class="c-note">Submitting this form does not create a solicitor-client relationship. We will be in touch to discuss your matter before any engagement is confirmed.</div>
+        <button type="submit" class="c-submit" id="sbtn">Send enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<div class="footer-main">
+  <div>
+    <p class="f-name">Bennett &amp; Co</p>
+    <p class="f-desc">Solicitors &amp; Barristers<br>Level 2, 45 Grey Street<br>Tauranga 3110, New Zealand<br>Established 1998 &nbsp;&middot;&nbsp; NZLS Reg. No. 00-45821</p>
+    <p class="f-note">This is a fictional website created for web design portfolio demonstration purposes only. Bennett &amp; Co does not exist as a legal practice.</p>
+  </div>
+  <div>
+    <p class="f-col-h">Practice areas</p>
+    <ul class="f-links">
+      <li><a href="#areas">Commercial Law</a></li>
+      <li><a href="#areas">Property Law</a></li>
+      <li><a href="#areas">Employment Law</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="f-col-h">The firm</p>
+    <ul class="f-links">
+      <li><a href="#about">About the firm</a></li>
+      <li><a href="#howwework">How we work</a></li>
+      <li><a href="#team">Our team</a></li>
+      <li><a href="#testimonials">Client feedback</a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="f-col-h">Contact</p>
+    <ul class="f-links">
+      <li><a href="tel:+6475784820">(07) 578 4820</a></li>
+      <li><a href="mailto:enquiries@bennettco.co.nz">enquiries@bennettco.co.nz</a></li>
+      <li><a href="#contact">Send an enquiry</a></li>
+    </ul>
+  </div>
+</div>
+<div class="footer-bottom">
+  <p class="f-copy">&copy; 2025 Bennett &amp; Co Solicitors &amp; Barristers. All rights reserved.</p>
+  <p class="f-reg">NZLS Reg. No. 00-45821 &nbsp;&middot;&nbsp; All practitioners hold current practising certificates</p>
+</div>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('up'),i*50)});
+},{threshold:0.06});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+function openMenu(){document.getElementById('mobMenu').classList.add('open');document.body.style.overflow='hidden'}
+function closeMenu(){document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow=''}
+function formSend(e){
+  e.preventDefault();
+  const b=document.getElementById('sbtn');
+  b.textContent='Enquiry sent \u2014 we will be in touch shortly';
+  b.style.background='rgba(255,255,255,.08)';
+  b.style.color='rgba(255,255,255,.3)';
+  b.disabled=true;
+}
+</script>
+</body>
+</html>
